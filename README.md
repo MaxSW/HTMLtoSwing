@@ -6,3 +6,5 @@ However, the basic parsing engine is complete. This means that I will be adding 
 For an example of the library, see [Test](https://github.com/MaxSW/HTMLtoSwing/blob/master/src/com/xwarner/html/Test.java).
 
 This library uses the brilliant [TableLayout](https://github.com/EsotericSoftware/tablelayout/) library to arrange the Swing components.
+
+![Example](https://preview.ibb.co/c14eCv/HTMLto_Swing.png)
