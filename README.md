@@ -7,4 +7,4 @@ For an example of the library, see [Test](https://github.com/MaxSW/HTMLtoSwing/b
 
 This library uses the brilliant [TableLayout](https://github.com/EsotericSoftware/tablelayout/) library to arrange the Swing components.
 
-![Example](https://preview.ibb.co/c14eCv/HTMLto_Swing.png)
+![Example](https://image.ibb.co/frpqKa/HTMLto_Swing.png)
