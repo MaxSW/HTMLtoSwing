@@ -28,6 +28,7 @@ import com.xwarner.html.element.tags.H6Element;
 import com.xwarner.html.element.tags.InputElement;
 import com.xwarner.html.element.tags.PElement;
 import com.xwarner.html.element.tags.TextAreaElement;
+import com.xwarner.html.nav.Nav;
 import com.xwarner.html.style.CSSParser;
 
 /**
@@ -38,6 +39,7 @@ import com.xwarner.html.style.CSSParser;
 public class HTMLParser {
 
 	private ArrayList<String> styles; // only parse one file at a time
+	private Node nav;
 
 	public Document parse(File file) throws SAXException, IOException, ParserConfigurationException {
 		styles = new ArrayList<String>();
@@ -84,6 +86,10 @@ public class HTMLParser {
 						styles.add(readFile(f.getAbsolutePath()));
 					}
 					break;
+
+				case "nav":
+					nav = n;
+					break;
 				}
 			}
 		}
@@ -92,6 +98,8 @@ public class HTMLParser {
 		parsedDoc.resizable = Boolean.parseBoolean(parsedDoc.attributes.get("resizable"));
 		parsedDoc.styles = new CSSParser().parseCSS(styles);
 		parsedDoc.styles.apply(parsedDoc);
+		parsedDoc.nav = new Nav(nav);
+		parsedDoc.nav.parse(); // parse the menu
 		return parsedDoc;
 	}
 
@@ -138,6 +146,11 @@ public class HTMLParser {
 		case "style":
 			styles.add(node.getTextContent()); // add new style sheet
 			return null;
+
+		case "nav":
+			nav = node;
+			return null;
+
 		default:
 			element = new Element();
 			break;

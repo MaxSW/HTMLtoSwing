@@ -12,6 +12,7 @@ import org.xml.sax.SAXException;
 
 import com.xwarner.html.element.tags.FormElement;
 import com.xwarner.html.element.util.FormListener;
+import com.xwarner.html.nav.NavListener;
 
 /**
  * 
@@ -38,6 +39,11 @@ public class Test {
 					for (String key : data.keySet()) {
 						System.out.println(key + ": " + data.get(key));
 					}
+				}
+			};
+			document.nav.listener = new NavListener() {
+				public void click(String menuName, String menuId, String itemName, String itemId) {
+					System.out.println(menuName + ">" + itemName + " clicked");
 				}
 			};
 		} catch (SAXException | IOException | ParserConfigurationException e) {

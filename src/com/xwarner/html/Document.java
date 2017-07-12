@@ -5,6 +5,7 @@ import javax.swing.JScrollPane;
 
 import com.esotericsoftware.tablelayout.swing.Table;
 import com.xwarner.html.element.Element;
+import com.xwarner.html.nav.Nav;
 import com.xwarner.html.style.Styles;
 
 /**
@@ -20,6 +21,7 @@ public class Document extends Element {
 	public boolean resizable;
 
 	public Styles styles;
+	public Nav nav;
 
 	/** Creates the window **/
 	public JFrame createFrame() {
@@ -29,6 +31,8 @@ public class Document extends Element {
 		frame.setResizable(resizable);
 		frame.setLocationRelativeTo(null);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		if (nav != null)
+			frame.setJMenuBar(nav.render());
 		Table table = new Table();
 		table.pad(10).top().left();
 		table.defaults().pad(5).left().fill().expand(true, false);
