@@ -10,6 +10,7 @@ import javax.xml.parsers.ParserConfigurationException;
 
 import org.xml.sax.SAXException;
 
+import com.xwarner.html.element.TextElement;
 import com.xwarner.html.element.tags.FormElement;
 import com.xwarner.html.element.util.FormListener;
 import com.xwarner.html.nav.NavListener;
@@ -46,6 +47,8 @@ public class Test {
 					System.out.println(menuName + ">" + itemName + " clicked");
 				}
 			};
+			((TextElement) document.getElementById("title")).setText("Title");
+			;
 		} catch (SAXException | IOException | ParserConfigurationException e) {
 			e.printStackTrace();
 		}

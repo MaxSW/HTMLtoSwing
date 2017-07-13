@@ -13,8 +13,10 @@ public class TextElement extends Element {
 
 	protected Font defaultFont;
 
+	protected JTextArea label;
+
 	public void update() {
-		JTextArea label = new JTextArea(contents);
+		label = new JTextArea(contents);
 		label.setLineWrap(true);
 		label.setEditable(false);
 		Font font = defaultFont;
@@ -25,6 +27,10 @@ public class TextElement extends Element {
 			font = font.deriveFont(Float.parseFloat(styles.get("font-size").replace("px", "").replace("pt", "")));
 		label.setFont(font);
 		component = label;
+	}
+
+	public void setText(String s) {
+		label.setText(s);
 	}
 
 }

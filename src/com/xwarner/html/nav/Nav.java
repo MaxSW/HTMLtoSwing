@@ -51,9 +51,11 @@ public class Nav {
 	}
 
 	private Node getFirstElementChild(Node node) {
-		for (int i = 0; i < node.getChildNodes().getLength(); i++)
-			if (node.getChildNodes().item(i).getNodeType() == Node.ELEMENT_NODE)
-				return node.getChildNodes().item(i);
+		if (node.hasChildNodes()) {
+			for (int i = 0; i < node.getChildNodes().getLength(); i++)
+				if (node.getChildNodes().item(i).getNodeType() == Node.ELEMENT_NODE)
+					return node.getChildNodes().item(i);
+		}
 		return null;
 	}
 

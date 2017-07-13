@@ -98,8 +98,10 @@ public class HTMLParser {
 		parsedDoc.resizable = Boolean.parseBoolean(parsedDoc.attributes.get("resizable"));
 		parsedDoc.styles = new CSSParser().parseCSS(styles);
 		parsedDoc.styles.apply(parsedDoc);
-		parsedDoc.nav = new Nav(nav);
-		parsedDoc.nav.parse(); // parse the menu
+		if (nav != null) {
+			parsedDoc.nav = new Nav(nav);
+			parsedDoc.nav.parse(); // parse the menu
+		}
 		return parsedDoc;
 	}
 
